@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">House Price Prediction</h1>
+        <form action="/predict" method="POST" class="needs-validation" novalidate>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="square_footage" class="form-label">Square Footage</label>
+                    <input type="number" id="square_footage" name="square_footage" class="form-control" step="0.1" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="num_bedrooms" class="form-label">Number of Bedrooms</label>
+                    <input type="number" id="num_bedrooms" name="num_bedrooms" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="num_bathrooms" class="form-label">Number of Bathrooms</label>
+                    <input type="number" id="num_bathrooms" name="num_bathrooms" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="year_built" class="form-label">Year Built</label>
+                    <input type="number" id="year_built" name="year_built" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="lot_size" class="form-label">Lot Size (in acres)</label>
+                    <input type="number" id="lot_size" name="lot_size" class="form-control" step="0.1" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="garage_size" class="form-label">Garage Size (Number of Cars)</label>
+                    <input type="number" id="garage_size" name="garage_size" class="form-control" required>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </div>
+        </form>
+        {% if result %}
+            <div class="alert alert-info mt-4 text-center">
+                <strong>Predicted House Price:</strong> {{ result }}
+            </div>
+        {% endif %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
